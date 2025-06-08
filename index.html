@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Alina4Lang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      transition: background-color 0.5s, color 0.5s;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      cursor: pointer;
+      z-index: 9999;
+      transition: transform 0.3s ease, color 0.3s ease;
+      animation: pulse-heart 2s infinite;
+      color: #e63946;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes pulse-heart {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    body.dark-theme {
+      background-color: #111;
+      color: #fff;
+    }
+
+    .sexy-button {
+      display: inline-flex;
+      align-items: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      background-color: #f4c9cc;
+      color: #000;
+      text-decoration: none;
+      padding: 20px 40px;
+      border-radius: 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .sexy-button img {
+      width: 28px;
+      height: 28px;
+      margin-right: 12px;
+    }
+
+    .sexy-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .hero-section {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('your-photo.jpg') center/cover no-repeat;
+      background-attachment: scroll;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      padding: 20px;
+      max-width: 800px;
+    }
+
+    .hero-heading {
+      font-size: 2.4rem;
+      font-weight: 600;
+      background-color: rgba(0,0,0,0.5);
+      padding: 16px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+    }
+
+    .hero-subtext {
+      font-size: 1.2rem;
+      background-color: rgba(0,0,0,0.4);
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      display: inline-block;
+    }
+
+    .private-section {
+      position: relative;
+      padding: 120px 20px;
+      text-align: center;
+      background: url('private-bg.png') center/cover no-repeat;
+      backdrop-filter: blur(6px);
+      overflow: hidden;
+    }
+
+    .private-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+
+    .private-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: auto;
+      color: #fff;
+    }
+
+    .private-avatar {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin-bottom: 24px;
+      object-fit: cover;
+      border: 4px solid white;
+    }
+
+    .private-heading, .private-text {
+      background-color: rgba(0,0,0,0.4);
+      padding: 16px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+
+    .group-section {
+      position: relative;
+      padding: 100px 20px;
+      text-align: center;
+      background: url('groups-bg.jpg') center/cover no-repeat;
+      color: #000;
+    }
+
+    .group-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      z-index: 1;
+    }
+
+    .group-wrapper {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .group-title {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .group-subtext {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .accordion {
+      text-align: left;
+    }
+
+    .accordion-item {
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      background-color: rgba(255,255,255,0.7);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .accordion-header {
+      background-color: #fff;
+      padding: 16px 24px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .accordion-body {
+      padding: 16px 24px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    .accordion-body.show {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="theme-toggle" onclick="document.body.classList.toggle('dark-theme')">❤️</div>
+
+<section class="hero-section">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1 class="hero-heading">Самый сексуальный учитель английского 💄</h1>
+    <div class="hero-subtext">Научу владеть языком — индивидуально и по любви 💋</div>
+    <a href="https://t.me/alina4lang_bot" class="sexy-button" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">Записаться индивидуально
+    </a>
+  </div>
+</section>
+
+<section class="private-section">
+  <div class="private-content">
+    <img src="avatar.png" class="private-avatar">
+    <h2 class="private-heading">Мой закрытый Telegram-канал 🔥</h2>
+    <p class="private-text">Откровенные лайфхаки, голосовые разборы и личные наблюдения</p>
+    <a href="https://t.me/alina4lang" class="sexy-button" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">Войти в канал
+    </a>
+  </div>
+</section>
+
+<section class="group-section">
+  <div class="group-wrapper">
+    <h2 class="group-title">Групповые занятия в моём стиле 🖤</h2>
+    <p class="group-subtext">Выбирай группу — и вперёд за знаниями и кайфом</p>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <img src="https://cdn-icons-png.flaticon.com/512/4086/4086679.png" width="24">🔥 Sexy Beginners
+        </button>
+        <div class="accordion-body">
+          <p>Учим базу на горячих примерах, в расслабленной атмосфере 💋</p>
+          <a href="https://t.me/alina4lang_bot" class="sexy-button" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">Записаться
+          </a>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <img src="https://cdn-icons-png.flaticon.com/512/4086/4086604.png" width="24">💬 Dirty Slang Club
+        </button>
+        <div class="accordion-body">
+          <p>Американский сленг для барных разговоров и неприличных шуток 🥂</p>
+          <a href="https://t.me/alina4lang_bot" class="sexy-button" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">Записаться
+          </a>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <img src="https://cdn-icons-png.flaticon.com/512/4076/4076508.png" width="24">🖤 Group Therapy
+        </button>
+        <div class="accordion-body">
+          <p>Разговорный английский на основе личных историй и рефлексии 😌</p>
+          <a href="https://t.me/alina4lang_bot" class="sexy-button" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">Записаться
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function toggleAccordion(btn) {
+    const body = btn.nextElementSibling;
+    body.classList.toggle('show');
+  }
+</script>
+
+</body>
+</html>
