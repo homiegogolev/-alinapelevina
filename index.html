@@ -307,6 +307,58 @@
       .hero-heading, .private-heading, .course-heading { font-size: 2rem; }
       .hero-button, .private-button, .course-button { font-size: 1.2rem; padding: 16px 28px; }
     }
+/* 🔹 Блок 5: Видео-отзыв */
+.review-section{
+  position:relative;
+  padding:100px 20px;
+  background:url('review-bg.jpg') center/cover no-repeat;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+}
+.review-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.5));
+  backdrop-filter:blur(6px);
+  z-index:1;
+}
+.review-content{
+  position:relative;
+  z-index:2;
+  max-width:800px;
+  margin:auto;
+  animation:fadeInUp 1.2s ease-out forwards;
+  opacity:0;
+  transform:translateY(20px);
+  animation-delay:.4s;
+}
+.review-heading{
+  font-size:2.4rem;
+  margin-bottom:30px;
+  background:rgba(0,0,0,.5);
+  padding:16px 28px;
+  border-radius:16px;
+  display:inline-block;
+}
+.review-video{
+  width:100%;
+  max-width:720px;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);
+  margin-bottom:20px;
+}
+.review-caption{
+  background:rgba(0,0,0,.4);
+  padding:12px 20px;
+  border-radius:12px;
+  display:inline-block;
+  font-size:1.1rem;
+}
+@media(max-width:600px){
+  .review-heading{font-size:1.6rem}
+  .review-caption{font-size:1rem}
+}
   </style>
 </head>
 
@@ -361,6 +413,15 @@
       <p class="course-note">💳 Оплата: ₽ / € / крипта и зарубежные карты</p>
     </div>
   </section>
-
+<!-- Блок 5: Видеоотзыв -->
+<section class="review-section" style="padding: 100px 20px; text-align: center; background-color: #111; color: #fff;">
+  <h2 class="review-heading" style="font-size: 2.4rem; margin-bottom: 20px;">💬 Отзыв моей ученицы</h2>
+  <video class="review-video" controls poster="video-poster.jpg" style="max-width: 90%; border-radius: 20px; box-shadow: 0 8px 30px rgba(0,0,0,0.5);">
+    <source src="review.mp4" type="video/mp4">
+    <source src="review.mov" type="video/quicktime">
+    Ваш браузер не поддерживает видео.
+  </video>
+  <p class="review-caption" style="margin-top: 20px; font-size: 1.1rem;">Посмотри, как изменилась её уверенность за 2 недели 😍</p>
+</section>
 </body>
 </html>
