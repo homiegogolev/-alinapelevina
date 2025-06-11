@@ -497,6 +497,26 @@ html, body {
   width: 100%;
   overflow-x: hidden;
 }
+<style>
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 60, 106, 0.6);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 60, 106, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 60, 106, 0);
+  }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+</style>
   </style>
 </head>
 
@@ -514,6 +534,7 @@ html, body {
     <p class="private-text">
       Мой голос, твоя фантазия и щепотка английского. <br>Откровенные лайфхаки, горячие кружочки и разборы, от которых становится жарко 🔥</br>
     </p>
+
     <a href="https://t.me/alina4lang" class="private-button" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png"> Войти в канал
     </a>
@@ -550,51 +571,70 @@ html, body {
   <br>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSe_CWq-6yvHrx0WkXFdd0J_UHJYFegWB9d1G9ymxuUtj1WJ3A/viewform?usp=header" class="group-button" target="_blank">Записаться в группу</a>
 </section>
-<!-- Блок 4: Онлайн-курс -->
-<section class="course-section">
-  <div class="course-bg"></div>
-  <div class="course-overlay"></div>
-  <div class="course-content">
-    <h2 class="course-heading">💻 Онлайн-курс от самой 🔥 училки</h2>
+<!-- Блок 4: Онлайн-курс с раскрытием -->
+<section class="course-section" style="position: relative; padding: 100px 20px; overflow: hidden; background: url('course-bg.JPG') center/cover no-repeat;">
+  <!-- Тёмный блюр -->
+  <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(6px); z-index: 1;"></div>
 
-    <p class="course-text">
-      <strong>Сними языковой барьер. Почувствуй удовольствие 💋</strong>
+  <!-- Контент -->
+  <div class="course-content" style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 24px; box-shadow: 0 8px 30px rgba(0,0,0,0.3); color: #fff; text-align: center;">
+    <h2 style="font-size: 2.4rem; margin-bottom: 20px;">💻 Онлайн-курс от самой 🔥 училки</h2>
+
+    <p style="font-size: 1.2rem; font-weight: 600; margin-bottom: 16px;">
+      Сними языковой барьер. Почувствуй удовольствие 💋
     </p>
 
-    <p class="course-text">
-      Добро пожаловать в курс, где английский не учат — его <strong>проживают</strong>.<br>
-      Ты не зубришь, а соблазняешь словами.
-    </p>
+    <!-- Кнопка "Подробнее" -->
+    <button onclick="toggleDetails()" class="pulse" style="background: linear-gradient(135deg, #f4c9cc, #f4c9cc); color: #000; border: none; padding: 12px 28px; border-radius: 40px; font-size: 1rem; font-weight: bold; cursor: pointer; box-shadow: 0 4px 15px rgba(255, 60, 106, 0.5); transition: background 0.3s ease;">
+      👉 Подробнее о курсе
+    </button>
 
-    <p class="course-text">
-      Говорим о чувствах, флиртуем, обсуждаем мечты, секс, бизнес и путешествия —<br>
-      на английском, как будто ты уже живёшь этой жизнью.
-    </p>
+    <!-- Раскрывающийся текст -->
+    <div id="details-block" style="max-height: 0; overflow: hidden; opacity: 0; transition: max-height 0.6s ease, opacity 0.6s ease; margin-top: 20px; text-align: left;">
+      <p style="margin-bottom: 16px;">
+        Говорим о чувствах, флиртуем, мечтаем, обсуждаем секс, бизнес и путешествия —<br>
+        на английском, словно ты уже живёшь этой свободной, желанной жизнью.
+      </p>
+      <p style="margin-bottom: 16px;">
+        Каждый видеоурок — это:<br>
+        🔥 сексуальные, уверенные фразы, которые хочется повторять<br>
+        💄 грамматика — легко, женственно, без занудства<br>
+        🎥 практика, после которой хочется «ещё»
+      </p>
+      <p>
+        Это не просто язык.<br>
+        Это язык тела. Язык души.<br>
+        Всё, что делает тебя собой — теперь и на английском.
+      </p>
+    </div>
 
-    <p class="course-text">
-      Каждый видео-урок — это:<br>
-      🔥 живые, сексуальные и уверенные фразы<br>
-      💄 грамматика без занудства<br>
-      🎥 практика, от которой хочется «ещё»
-    </p>
+    <!-- Кнопка перехода -->
+    <a href="https://t.me/anastasiamelnik8" target="_blank" class="pulse" style="display: inline-block; margin-top: 30px; background: linear-gradient(135deg, #f4c9cc, #f4c9cc); padding: 14px 28px; border-radius: 40px; font-size: 1.1rem; font-weight: bold; text-decoration: none; color: #000; box-shadow: 0 4px 15px rgba(255, 60, 106, 0.5); transition: transform 0.2s ease;">
+      💋 Курс скоро откроется — следи за анонсом
+    </a>
 
-    <p class="course-text">
-      Здесь не только язык тела, но и язык души.<br>
-      Всё, что делает тебя свободной и желанной — теперь и на английском.
+    <!-- Иконки оплаты -->
+    <p style="margin-top: 30px; font-size: 0.95rem;">
+      💳 Принимаем оплату:
     </p>
-
-    <a href="https://t.me/anastasiamelnik8" class="course-button" target="_blank">Скоро будет доступен 💋💋</a>
-
-    <p class="course-note">
-      💳 ПРИНИМАЕМ ОПЛАТУ
-      <br><br>
-      <img src="mir.PNG" alt="МИР" class="pay-icon">
-      <img src="visa.PNG" alt="Visa" class="pay-icon">
-      <img src="paypal.PNG" alt="PayPal" class="pay-icon">
-      <img src="bybit.PNG" alt="Bybit" class="pay-icon">
-    </p>
+₽ / $ / € / крипта
   </div>
 </section>
+
+<script>
+  function toggleDetails() {
+    const block = document.getElementById("details-block");
+    const isOpen = block.style.maxHeight && block.style.maxHeight !== "0px";
+
+    if (isOpen) {
+      block.style.maxHeight = "0";
+      block.style.opacity = "0";
+    } else {
+      block.style.maxHeight = "600px"; // можно увеличить при необходимости
+      block.style.opacity = "1";
+    }
+  }
+</script>
 <!-- Блок 5: Видеоотзыв -->
 <section class="review-section" style="position: relative; padding: 100px 20px; text-align: center; overflow: hidden; color: #fff; background: url('review-bg.JPG') center/cover no-repeat;">
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 1;"></div>
